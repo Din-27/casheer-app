@@ -7,8 +7,9 @@ export default function SampleData() {
         startWithProductData()
         loadProducts()
         startBlank()
+        window.location.reload()
     }
-    
+
     return (
         <div className="fixed glass w-full h-screen left-0 top-0 z-10 flex flex-wrap justify-center content-center p-24">
             <div className="w-96 rounded-3xl p-8 bg-white shadow-xl">
