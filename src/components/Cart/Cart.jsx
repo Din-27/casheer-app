@@ -79,7 +79,7 @@ export default function Cart() {
                                             <div className="w-28 grid grid-cols-3 gap-2 ml-2">
                                                 <button
                                                     onClick={() => handleQty("less", x)}
-                                                    className="rounded-lg text-center py-1 text-black bg-blue-gray-600 hover:bg-blue-gray-700 focus:outline-none"
+                                                    className="rounded-lg text-center py-1 text-white bg-blue-gray-600 hover:bg-blue-gray-700 focus:outline-none"
                                                 >
                                                     <svg
                                                         xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +103,7 @@ export default function Cart() {
                                                 />
                                                 <button
                                                     onClick={() => handleQty("add", x)}
-                                                    className="rounded-lg text-center py-1 text-black bg-blue-gray-600 hover:bg-blue-gray-700 focus:outline-none"
+                                                    className="rounded-lg text-center py-1 text-white bg-blue-gray-600 hover:bg-blue-gray-700 focus:outline-none"
                                                 >
                                                     <svg
                                                         xmlns="http://www.w3.org/2000/svg"

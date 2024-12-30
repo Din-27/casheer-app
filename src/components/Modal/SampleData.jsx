@@ -20,13 +20,13 @@ export default function SampleData() {
                     <h3 className="text-center text-2xl mb-8">FIRST TIME?</h3>
                 </div>
                 <div className="text-left">
-                    <button onClick={startProductSample} className="text-left w-full mb-3 rounded-xl bg-blue-gray-500 text-black focus:outline-none hover:bg-cyan-400 px-4 py-4">
+                    <button onClick={startProductSample} className="text-left w-full mb-3 rounded-xl bg-blue-gray-500 text-white focus:outline-none hover:bg-cyan-400 px-4 py-4">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline-block -mt-1 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4-1v8m0 0l3-3m-3 3L9 8m-5 5h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 00.707.293h3.172a1 1 0 00.707-.293l2.414-2.414a1 1 0 01.707-.293H20" />
                         </svg>
                         LOAD SAMPLE DATA
                     </button>
-                    <button onClick={startBlank} className="text-left w-full rounded-xl bg-blue-gray-500 text-black focus:outline-none hover:bg-teal-400 px-4 py-4">
+                    <button onClick={startBlank} className="text-left w-full rounded-xl bg-blue-gray-500 text-white focus:outline-none hover:bg-teal-400 px-4 py-4">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline-block -mt-1 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
                         </svg>
