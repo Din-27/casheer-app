@@ -13,11 +13,11 @@ export const productSlice = createSlice({
     name: 'product',
     initialState,
     reducers: {
-        setProduct: (state, { products }) => {
-            state.products = products
+        setProduct: (state, { payload }) => {
+            state.products = payload.products
         },
-        setKeyword: (state, { search }) => {
-            state.products = search
+        setKeyword: (state, { payload }) => {
+            state.keyword = payload.search
         },
         clearProducts: (state) => {
             state.database = false
@@ -29,6 +29,6 @@ export const productSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { loadProducts, setProduct, setKeyword, clearProducts } = productSlice.actions
+export const { setProduct, setKeyword, clearProducts } = productSlice.actions
 
 export default productSlice.reducer

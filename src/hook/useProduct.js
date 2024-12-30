@@ -7,14 +7,17 @@ import { setFirstTime } from "../redux/modalSlice";
 
 export const useProduct = () => {
     const dispatch = useDispatch();
-    const { products, keyword } = useSelector((state) => state.product);
+    const { products } = useSelector((state) => state.product);
 
     return {
         loadProducts: async () => {
             const db = await loadDatabase()
             dispatch(setProduct({ products: await db.getProducts() }))
         },
-        filteredProducts: () => {
+        deleteProducts: () => {
+            dispatch(setProduct({ products: [] }))
+        },
+        filteredProducts: (keyword) => {
             const rg = keyword ? new RegExp(keyword, "gi") : null;
             dispatch(setProduct({ products: products.filter((p) => !rg || p.name.match(rg)) }))
         },
@@ -24,7 +27,6 @@ export const useProduct = () => {
             for (let product of data.products) {
                 await db.addProduct(product);
             }
-            dispatch(setFirstTime({ firstTime: false }))
         },
         startBlank: () => {
             dispatch(setFirstTime({ firstTime: false }))

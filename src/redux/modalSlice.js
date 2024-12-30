@@ -4,7 +4,7 @@ import { dateFormat } from '../helper/dateFormat'
 
 
 const initialState = {
-    firstTime: localStorage.getItem("first_time") === null,
+    firstTime: true,
     isShowModalReceipt: false,
     receiptNo: null,
     receiptDate: null,
@@ -14,8 +14,8 @@ export const modalSlice = createSlice({
     name: 'modal',
     initialState,
     reducers: {
-        setFirstTime: (state, { firstTime }) => {
-            state.firstTime = firstTime
+        setFirstTime: (state, { payload }) => {
+            state.firstTime = payload.firstTime
         },
         setIsShowModalReceipt: (state, { isShowModalReceipt }) => {
             state.isShowModalReceipt = isShowModalReceipt

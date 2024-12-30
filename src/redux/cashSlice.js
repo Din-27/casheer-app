@@ -11,11 +11,11 @@ export const cashSlice = createSlice({
     name: 'cash',
     initialState,
     reducers: {
-        setCash: (state, { cash }) => {
-            state.cash = cash;
+        setCash: (state, { payload }) => {
+            state.cash = payload.cash;
         },
-        setChange: (state, { change }) => {
-            state.change = change
+        setChange: (state, { payload }) => {
+            state.change = payload.change
         },
         clearCash: (state) => {
             state.cash = 0;

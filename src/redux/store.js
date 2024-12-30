@@ -13,14 +13,14 @@ import modalReducer from './modalSlice'
 const productPersistConfig = {
     key: "product",
     storage,
-    whitelist: ['firstTime']
+    whitelist: ['firstTime'],
 };
 
 const rootReducer = combineReducers({
     cart: cartReducer,
     cash: cashReducer,
-    modal: modalReducer,
-    product: persistReducer(productPersistConfig, productReducer),
+    modal: persistReducer(productPersistConfig, modalReducer),
+    product: productReducer,
 });
 
 const store = configureStore({

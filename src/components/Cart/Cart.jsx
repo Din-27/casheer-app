@@ -3,6 +3,7 @@ import { useCart } from "../../hook/useCart";
 import { useCash } from "../../hook/useCash";
 import { numberFormat, priceFormat } from "../../helper/moneyFormat";
 import { useModalReceipt } from "../../hook/useModalReceipt";
+import CartKosong from "./CartKosong";
 
 export default function Cart() {
     const { cart, total_price } = useSelector((state) => state.cart);
@@ -14,30 +15,11 @@ export default function Cart() {
         clearCart();
     };
     const handleQty = (action, x) => addLessQty({ item: x, type: action });
-    const handleChangeInput = (e) => updateCash(e.target.value);
 
     return (
         <div className="w-5/12 flex flex-col bg-blue-gray-50 h-full bg-white pr-4 pl-2 py-4">
             <div className="bg-white rounded-3xl flex flex-col h-full shadow">
-                {cart.length === 0 && (
-                    <div className="flex-1 w-full p-4 opacity-25 select-none flex flex-col flex-wrap content-center justify-center">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-16 inline-block"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                            />
-                        </svg>
-                        <p>KERANJANG KOSONG</p>
-                    </div>
-                )}
+                {cart.length === 0 && <CartKosong />}
                 {cart.length > 0 && (
                     <div className="flex-1 flex flex-col overflow-auto">
                         <div className="h-16 text-center flex justify-center">
@@ -57,7 +39,7 @@ export default function Cart() {
                                     />
                                 </svg>
                                 <div className="text-center absolute bg-cyan-500 text-white w-5 h-5 text-xs p-0 leading-5 rounded-full -right-2 top-3">
-                                    {getItemsCount}
+                                    {getItemsCount()}
                                 </div>
                             </div>
                             <div className="flex-grow px-8 text-right text-lg py-4 relative">
@@ -100,7 +82,7 @@ export default function Cart() {
                                             <div className="w-28 grid grid-cols-3 gap-2 ml-2">
                                                 <button
                                                     onClick={() => handleQty("less", x)}
-                                                    className="rounded-lg text-center py-1 text-white bg-blue-gray-600 hover:bg-blue-gray-700 focus:outline-none"
+                                                    className="rounded-lg text-center py-1 text-black bg-blue-gray-600 hover:bg-blue-gray-700 focus:outline-none"
                                                 >
                                                     <svg
                                                         xmlns="http://www.w3.org/2000/svg"
@@ -124,7 +106,7 @@ export default function Cart() {
                                                 />
                                                 <button
                                                     onClick={() => handleQty("add", x)}
-                                                    className="rounded-lg text-center py-1 text-white bg-blue-gray-600 hover:bg-blue-gray-700 focus:outline-none"
+                                                    className="rounded-lg text-center py-1 text-black bg-blue-gray-600 hover:bg-blue-gray-700 focus:outline-none"
                                                 >
                                                     <svg
                                                         xmlns="http://www.w3.org/2000/svg"
@@ -165,7 +147,7 @@ export default function Cart() {
                                 <input
                                     type="text"
                                     value={numberFormat(cash)}
-                                    onChange={handleChangeInput}
+                                    onChange={updateCash}
                                     className="w-28 text-right bg-white shadow rounded-lg focus:bg-white focus:shadow-lg px-2 focus:outline-none"
                                 />
                             </div>
@@ -218,10 +200,10 @@ export default function Cart() {
                         </div>
                     )}
                     <button
-                        disabled={!submitable}
+                        disabled={!submitable()}
                         onClick={submitReceipt}
                         className={`text-white rounded-2xl text-lg w-full py-3 focus:outline-none 
-                        ${submitable
+                        ${submitable()
                                 ? "bg-cyan-500 hover:bg-cyan-600"
                                 : "bg-blue-gray-200"
                             }`}

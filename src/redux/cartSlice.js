@@ -10,14 +10,17 @@ export const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-        setCart: (state, { carts }) => {
-            state.cart = carts
+        setCart: (state, { payload }) => {
+            state.cart = payload.carts
         },
-        totalPrice: (state) => {
-            state.total_price = state.cart.reduce(
-                (total, item) => total + item.qty * item.price,
-                0
-            )
+        addCart: (state, { payload }) => {
+            state.cart = [...state.cart, payload.carts]
+        },
+        changeCart: (state, { payload }) => {
+            state.cart[payload.index][payload.name] = payload.value;
+        },
+        delCart: (state, { payload }) => {
+            state.cart.splice(payload.index, 1)
         },
         clearCart: (state) => {
             state.cart = []
@@ -26,6 +29,6 @@ export const cartSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { setCart, clearCart, totalPrice } = cartSlice.actions
+export const { setCart, addCart, changeCart, delCart, clearCart, totalPrice } = cartSlice.actions
 
 export default cartSlice.reducer

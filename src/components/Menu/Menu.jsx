@@ -1,18 +1,28 @@
-import { useDispatch } from 'react-redux'
-import { setKeyword } from '../../redux/productSlice'
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useSelector } from 'react-redux';
 import { useProduct } from '../../hook/useProduct';
 import Card from '../Card/Card';
+import { useEffect } from 'react';
 
 export default function Menu() {
-    const dispatch = useDispatch()
-    const { filteredProducts } = useProduct();
+    const { filteredProducts, loadProducts, deleteProducts } = useProduct();
     const { products, keyword } = useSelector((state) => state.product);
-
+    const { firstTime } = useSelector((state) => state.modal);
 
     const onChange = (e) => {
-        dispatch(setKeyword(e.target.value))
+        if (e.target.value.length > 0) {
+            filteredProducts(e.target.value)
+        } else {
+            loadProducts()
+        }
     }
+
+    useEffect(() => {
+        if (firstTime) {
+            deleteProducts()
+        }
+        loadProducts()
+    }, [])
 
     return (
         <div className="flex flex-col bg-blue-gray-50 h-full w-full py-4">
@@ -93,7 +103,7 @@ export default function Menu() {
                     {products?.length > 0 && <div
                         className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 pb-3"
                     >
-                        {products && filteredProducts.map((x, y) =>
+                        {products && products.map((x, y) =>
                             <div key={y}>
                                 <Card item={x} />
                             </div>
