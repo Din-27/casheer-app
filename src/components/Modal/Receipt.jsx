@@ -1,10 +1,12 @@
 import { useSelector } from 'react-redux';
 import { useModalReceipt } from '../../hook/useModalReceipt';
 import { priceFormat } from '../../helper/moneyFormat';
+import { useCash } from '../../hook/useCash';
 
 export default function Receipt() {
+    const { getTotalPrice } = useCash();
     const { cash, change } = useSelector((state) => state.cash);
-    const { cart, total_price } = useSelector((state) => state.cart);
+    const { cart } = useSelector((state) => state.cart);
     const { receiptDate, receiptNo } = useSelector((state) => state.modal);
     const { closeModalReceipt, printReceipt } = useModalReceipt();
 
@@ -59,7 +61,7 @@ export default function Receipt() {
                     <div>
                         <div className="flex font-semibold">
                             <div className="flex-grow">TOTAL</div>
-                            <div>{total_price}</div>
+                            <div>{priceFormat(getTotalPrice())}</div>
                         </div>
                         <div className="flex text-xs font-semibold">
                             <div className="flex-grow">PAY AMOUNT</div>
