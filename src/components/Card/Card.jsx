@@ -4,7 +4,6 @@ import { useCart } from "../../hook/useCart";
 
 export default function Card({ item }) {
     const { addToCart } = useCart();
-    console.log(item.image);
     
     return (
         <div

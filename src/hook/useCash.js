@@ -33,6 +33,12 @@ export const useCash = () => {
             dispatch(setChange({
                 change: cash - totalPrice,
             }));
+        },
+        getTotalPrice: () => {
+            return cart.reduce(
+                (total, item) => total + item.qty * item.price,
+                0
+            );
         }
     };
 };

@@ -6,14 +6,11 @@ import { useModalReceipt } from "../../hook/useModalReceipt";
 import CartKosong from "./CartKosong";
 
 export default function Cart() {
-    const { cart, total_price } = useSelector((state) => state.cart);
+    const { updateCash, addCash, getTotalPrice } = useCash();
+    const { submitReceipt } = useModalReceipt();
+    const { cart } = useSelector((state) => state.cart);
     const { cash, moneys, change } = useSelector((state) => state.cash);
     const { addLessQty, clearCart, getItemsCount, submitable } = useCart();
-    const { updateCash, addCash } = useCash();
-    const { submitReceipt } = useModalReceipt();
-    const handleClear = () => {
-        clearCart();
-    };
     const handleQty = (action, x) => addLessQty({ item: x, type: action });
 
     return (
@@ -44,7 +41,7 @@ export default function Cart() {
                             </div>
                             <div className="flex-grow px-8 text-right text-lg py-4 relative">
                                 <button
-                                    onClick={handleClear}
+                                    onClick={clearCart}
                                     className="text-blue-gray-300 hover:text-pink-500 focus:outline-none"
                                 >
                                     <svg
@@ -136,7 +133,7 @@ export default function Cart() {
                     <div className="flex mb-3 text-lg font-semibold text-blue-gray-700">
                         <div>TOTAL</div>
                         <div className="text-right w-full">
-                            {priceFormat(total_price)}
+                            {priceFormat(getTotalPrice())}
                         </div>
                     </div>
                     <div className="mb-3 text-blue-gray-700 px-3 pt-2 pb-3 rounded-lg bg-blue-gray-50">

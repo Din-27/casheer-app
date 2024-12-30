@@ -21,7 +21,7 @@ export default function Receipt() {
             >
                 <div id="receipt-content" className="text-left w-full text-sm p-6 overflow-auto">
                     <div className="text-center">
-                        <img src='' alt="Tailwind POS" className="mb-3 w-8 h-8 inline-block" />
+                        <img src='/img/receipt-logo.png' alt="Tailwind POS" className="mb-3 w-8 h-8 inline-block" />
                         <h2 className="text-xl font-semibold">TAILWIND POS</h2>
                         <p>CABANG KONOHA SELATAN</p>
                     </div>
