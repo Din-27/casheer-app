@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     products: [],
+    category: [],
     database: false,
     time: false,
     keyword: "",
@@ -15,6 +16,9 @@ export const productSlice = createSlice({
     reducers: {
         setProduct: (state, { payload }) => {
             state.products = payload.products
+        },
+        setCategory: (state, { payload }) => {
+            state.category = payload.category
         },
         setKeyword: (state, { payload }) => {
             state.keyword = payload.search
@@ -29,6 +33,6 @@ export const productSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { setProduct, setKeyword, clearProducts } = productSlice.actions
+export const { setProduct, setCategory, setKeyword, clearProducts } = productSlice.actions
 
 export default productSlice.reducer

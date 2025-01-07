@@ -3,12 +3,12 @@ import { useSelector } from 'react-redux';
 import { useProduct } from '../../hook/useProduct';
 import Card from '../Card/Card';
 import { useEffect } from 'react';
+import Tabs from '../Tabs/Tabs';
 
 export default function Menu() {
     const { filteredProducts, loadProducts, deleteProducts } = useProduct();
     const { products, keyword } = useSelector((state) => state.product);
     const { firstTime } = useSelector((state) => state.modal);
-
     const onChange = (e) => {
         if (e.target.value.length > 0) {
             filteredProducts(e.target.value)
@@ -50,6 +50,7 @@ export default function Menu() {
                     onChange={onChange}
                 />
             </div>
+            <Tabs />
             <div className="h-full overflow-hidden mt-4">
                 <div className="h-full overflow-y-auto px-2">
                     {products?.length === 0 &&

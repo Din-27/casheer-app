@@ -3,11 +3,13 @@ import { useProduct } from "../../hook/useProduct"
 export default function SampleData() {
     const { startWithProductData, startBlank, loadProducts } = useProduct()
 
-    const startProductSample = () => {
-        startWithProductData()
+    const startProductSample = async () => {
+        const msg = await startWithProductData()
         loadProducts()
         startBlank()
-        window.location.reload()
+        if (msg === 'sukses') {
+            window.location.reload()
+        }
     }
 
     return (
