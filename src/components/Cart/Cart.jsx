@@ -180,6 +180,23 @@ export default function Cart() {
                             </div>
                         </div>
                     )}
+                    <div className="flex flex-col mb-3 text-lg font-semibold bg-cyan-500 text-white rounded-lg py-2 px-3">
+                        <div className="text-right flex-grow py-2">
+                            <div className="flex-grow text-left">Voucher</div>
+                            <input
+                                type="text"
+                                onChange=''
+                                className="uppercase w-full text-left text-cyan-500 bg-white shadow rounded-lg focus:bg-white focus:shadow-lg p-2 focus:outline-none"
+                            />
+                        </div>
+                        <button
+                            disabled={!submitable()}
+                            onClick={submitReceipt}
+                            className="text-white rounded-lg text-lg w-full py-1 focus:outline-none bg-cyan-500 border hover:bg-cyan-800"
+                        >
+                            SUBMIT
+                        </button>
+                    </div>
                     {change === 0 && cart.length > 0 && (
                         <div className="flex justify-center mb-3 text-lg font-semibold bg-cyan-50 text-cyan-700 rounded-lg py-2 px-3">
                             <svg

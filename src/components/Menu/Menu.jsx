@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import Tabs from '../Tabs/Tabs';
 
 export default function Menu() {
+    const params = new URLSearchParams(window.location.search)
     const { filteredProducts, loadProducts, deleteProducts } = useProduct();
     const { products, keyword } = useSelector((state) => state.product);
     const { firstTime } = useSelector((state) => state.modal);
@@ -13,7 +14,7 @@ export default function Menu() {
         if (e.target.value.length > 0) {
             filteredProducts(e.target.value)
         } else {
-            loadProducts()
+            loadProducts(params.get('category'))
         }
     }
 
@@ -21,7 +22,7 @@ export default function Menu() {
         if (firstTime) {
             deleteProducts()
         }
-        loadProducts()
+        loadProducts(params.get('category'))
     }, [])
 
     return (
@@ -50,7 +51,7 @@ export default function Menu() {
                     onChange={onChange}
                 />
             </div>
-            <Tabs />
+            {products.length > 0 && <Tabs />}
             <div className="h-full overflow-hidden mt-4">
                 <div className="h-full overflow-y-auto px-2">
                     {products?.length === 0 &&

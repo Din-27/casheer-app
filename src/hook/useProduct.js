@@ -14,7 +14,16 @@ export const useProduct = () => {
         loadProducts: async () => {
             const db = await loadDatabase()
             const products = await db.getProducts()
-            dispatch(setProduct({ products: products }))
+            const params = new URLSearchParams(window.location.search);
+            const item = params.get('category')
+            let _products = products
+            if (item) {
+                const filter = products.filter(x => x.category.toLocaleLowerCase() === item.toLocaleLowerCase())
+                if (filter.length > 0) {
+                    _products = filter
+                }
+            }
+            dispatch(setProduct({ products: _products }))
             dispatch(setCategory({ category: _.uniqBy(products.map(x => x.category)) }))
         },
         deleteProducts: () => {
@@ -23,9 +32,6 @@ export const useProduct = () => {
         filteredProducts: (keyword) => {
             const rg = keyword ? new RegExp(keyword, "gi") : null;
             dispatch(setProduct({ products: products.filter((p) => !rg || p.name.match(rg)) }))
-        },
-        categoryProducts: () => {
-            dispatch(setCategory({ category: _.uniqBy(products.map(x => x.category)) }))
         },
         startWithProductData: async () => {
             const result = []
@@ -41,14 +47,24 @@ export const useProduct = () => {
         startBlank: () => {
             dispatch(setFirstTime({ firstTime: false }))
         },
-        filterKlikCategory: async (item) => {
+        onClickFilterKlikCategory: async (item) => {
             const db = await loadDatabase()
             const products = await db.getProducts()
+            const params = new URL(window.location.href);
             const filter = products.filter(x => x.category.toLocaleLowerCase() === item.toLocaleLowerCase())
             let _products = products
             if (filter.length > 0) {
                 _products = filter
             }
+            // Set new query parameters
+            if (item !== 'All') {
+                params.searchParams.set("category", item);
+                window.history.pushState({}, "", `?category=${item}`);
+            } else {
+                params.searchParams.delete("category");
+                window.history.pushState({}, "", params);
+            }
+
             dispatch(setProduct({
                 products: _products
             }))
