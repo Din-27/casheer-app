@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
-import loadDatabase from '../helper/indexDB';
 import sampleJson from '../json/sample.json'
 import { setProduct, setCategory } from "../redux/productSlice";
 import { useDispatch } from "react-redux";
 import { setFirstTime } from "../redux/modalSlice";
 import _ from 'lodash'
+import api from '../api/product.service'
 
 export const useProduct = () => {
     const dispatch = useDispatch();
@@ -12,8 +12,7 @@ export const useProduct = () => {
 
     return {
         loadProducts: async () => {
-            const db = await loadDatabase()
-            const products = await db.getProducts()
+            const products = await api.getProducts()
             const params = new URLSearchParams(window.location.search);
             const item = params.get('category')
             let _products = products
@@ -35,10 +34,9 @@ export const useProduct = () => {
         },
         startWithProductData: async () => {
             const result = []
-            const db = await loadDatabase()
             const data = sampleJson;
             for (let product of data.products) {
-                await db.addProduct(product);
+                await api.addProduct(product);
                 result.push(product)
             }
             Promise.all(result)
@@ -48,8 +46,7 @@ export const useProduct = () => {
             dispatch(setFirstTime({ firstTime: false }))
         },
         onClickFilterKlikCategory: async (item) => {
-            const db = await loadDatabase()
-            const products = await db.getProducts()
+            const products = await api.getProducts()
             const params = new URL(window.location.href);
             const filter = products.filter(x => x.category.toLocaleLowerCase() === item.toLocaleLowerCase())
             let _products = products
