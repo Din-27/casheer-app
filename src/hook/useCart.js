@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { beep, clearSound } from "../helper/playsound";
-import { addCart, changeCart, clearCart, delCart } from "../redux/cartSlice";
+import { addCart, changeCart, clearCart, delCart, setSideCart } from "../redux/cartSlice";
 import { clearCash } from "../redux/cashSlice";
 import { useCash } from "./useCash";
 
@@ -27,6 +27,9 @@ export const useCart = () => {
                         option: product.option,
                         qty: 1,
                     }
+                }));
+                dispatch(setSideCart({
+                    sideCart: true
                 }));
             } else {
                 cart[index].qty += 1;

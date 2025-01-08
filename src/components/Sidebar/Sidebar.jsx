@@ -1,6 +1,13 @@
+import { useLocation, useNavigate } from "react-router"
+import pageInitialize from "../../page"
 
 export default function Sidebar() {
-    const activeMenu = 'kasir'
+    const navigation = useNavigate()
+    const { pathname } = useLocation()
+    const handlerSideNavigate = (path) => {
+        navigation(path)
+    }
+
     return (
         <div className="flex flex-row w-auto flex-shrink-0 pl-4 pr-2 py-4">
             <div className="flex flex-col items-center py-4 flex-shrink-0 w-20 bg-cyan-500 rounded-3xl">
@@ -42,13 +49,24 @@ export default function Sidebar() {
                     </svg>
                 </div>
                 <ul className="flex flex-col space-y-2 mt-12">
-                    <li>
+                    {pageInitialize() && pageInitialize().map((item, index) =>
+                        <li key={index} onClick={() => handlerSideNavigate(item.path)}>
+                            <div
+                                className="flex items-center">
+                                <span
+                                    className={`flex items-center justify-center h-12 w-12 rounded-2xl 
+                                ${item.path !== pathname ? 'hover:bg-cyan-400 text-cyan-100' : 'bg-cyan-300 shadow-lg text-white'}`}
+                                >
+                                    <div className="w-6 h-6" dangerouslySetInnerHTML={{ __html: item.icon_sidebar_svg }} />
+                                </span>
+                            </div>
+                        </li>)
+                    }
+                    {/* <li>
                         <div
                             className="flex items-center">
-                            <span
-                                className={`flex items-center justify-center h-12 w-12 rounded-2xl 
-                                ${activeMenu !== 'kasir' ? 'hover:bg-cyan-400 text-cyan-100' : 'bg-cyan-300 shadow-lg text-white'}`}
-                            >
+                            <span className={`flex items-center justify-center h-12 w-12 rounded-2xl 
+                                ${pageInitialize()[0].path !== getPath() !== 'report' ? 'hover:bg-cyan-400 text-cyan-100' : 'bg-cyan-300 shadow-lg text-white'}`}>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="h-6 w-6"
@@ -60,13 +78,13 @@ export default function Sidebar() {
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
                                         strokeWidth="2"
-                                        d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
                                     />
                                 </svg>
                             </span>
                         </div>
-                    </li>
-                    <li>
+                    </li> */}
+                    {/* <li>
                         <div
                             className="flex items-center">
                             <span className={`flex items-center justify-center h-12 w-12 rounded-2xl 
@@ -135,8 +153,8 @@ export default function Sidebar() {
                                 </svg>
                             </span>
                         </div>
-                    </li>
-                </ul>
+                    </li> */}
+                </ul >
                 <a
                     href="#"
                     className="mt-auto flex items-center justify-center text-cyan-200 hover:text-cyan-100 h-10 w-10 focus:outline-none"
@@ -154,7 +172,7 @@ export default function Sidebar() {
                         />
                     </svg>
                 </a>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }

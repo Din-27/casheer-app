@@ -1,10 +1,11 @@
 import Layout from '../components/Layout'
+import Menu from '../components/Menu/Menu'
 
 export default function Produk() {
 
     return (
         <Layout>
-            <h1>PRODUK</h1>
+            <Menu />
         </Layout>
     )
 }

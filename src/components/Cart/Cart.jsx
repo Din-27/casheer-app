@@ -4,23 +4,33 @@ import { useCash } from "../../hook/useCash";
 import { numberFormat, priceFormat } from "../../helper/moneyFormat";
 import { useModalReceipt } from "../../hook/useModalReceipt";
 import CartKosong from "./CartKosong";
+import { useDispatch } from "react-redux";
+import { setSideCart } from "../../redux/cartSlice";
 
 export default function Cart() {
-    const { updateCash, addCash, getTotalPrice } = useCash();
+    const dispatch = useDispatch()
     const { submitReceipt } = useModalReceipt();
+    const { updateCash, addCash, getTotalPrice } = useCash();
     const { cart } = useSelector((state) => state.cart);
     const { cash, moneys, change } = useSelector((state) => state.cash);
     const { addLessQty, clearCart, getItemsCount, submitable } = useCart();
     const handleQty = (action, x) => addLessQty({ item: x, type: action });
 
+    const handlerVisibleSideCart = () => {
+        dispatch(setSideCart({ sideCart: false }))
+    }
+
     return (
         <div className="w-5/12 flex flex-col bg-blue-gray-50 h-full bg-white pr-4 pl-2 py-4">
             <div className="bg-white rounded-3xl flex flex-col h-full shadow">
+                <button onClick={handlerVisibleSideCart} className="m-4 w-9 h-9 rounded-full border-2 text-gray-400 hover:text-gray-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon icon-tabler icons-tabler-outline icon-tabler-x"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
+                </button>
                 {cart.length === 0 && <CartKosong />}
                 {cart.length > 0 && (
                     <div className="flex-1 flex flex-col overflow-auto">
-                        <div className="h-16 text-center flex justify-center">
-                            <div className="pl-8 text-left text-lg py-4 relative">
+                        <div className="h-16 text-center flex justify-center py-2">
+                            <div className="pl-8 text-left text-lg relative">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="h-6 inline-block"
@@ -39,7 +49,7 @@ export default function Cart() {
                                     {getItemsCount()}
                                 </div>
                             </div>
-                            <div className="flex-grow px-8 text-right text-lg py-4 relative">
+                            <div className="flex-grow px-8 text-right text-lg relative">
                                 <button
                                     onClick={clearCart}
                                     className="text-blue-gray-300 hover:text-pink-500 focus:outline-none"
@@ -144,6 +154,7 @@ export default function Cart() {
                             <div className="flex text-right">
                                 <div className="mr-2">Rp</div>
                                 <input
+                                    placeholder="0,00"
                                     type="text"
                                     value={numberFormat(cash)}
                                     onChange={updateCash}
@@ -180,19 +191,20 @@ export default function Cart() {
                             </div>
                         </div>
                     )}
-                    <div className="flex flex-col mb-3 text-lg font-semibold bg-cyan-500 text-white rounded-lg py-2 px-3">
+                    <div className="flex flex-col mb-3 text-lg font-semibold bg-cyan-400 text-white rounded-lg py-2 px-3">
                         <div className="text-right flex-grow py-2">
                             <div className="flex-grow text-left">Voucher</div>
                             <input
+                                placeholder="AQUNCASLMXXX"
                                 type="text"
                                 onChange=''
-                                className="uppercase w-full text-left text-cyan-500 bg-white shadow rounded-lg focus:bg-white focus:shadow-lg p-2 focus:outline-none"
+                                className="uppercase w-full text-left text-cyan-400 bg-white shadow rounded-lg focus:bg-white focus:shadow-lg p-2 focus:outline-none"
                             />
                         </div>
                         <button
                             disabled={!submitable()}
                             onClick={submitReceipt}
-                            className="text-white rounded-lg text-lg w-full py-1 focus:outline-none bg-cyan-500 border hover:bg-cyan-800"
+                            className="text-white rounded-lg text-lg w-full py-1 focus:outline-none bg-cyan-400 border hover:bg-cyan-800"
                         >
                             SUBMIT
                         </button>
@@ -221,7 +233,7 @@ export default function Cart() {
                         className={`text-white rounded-2xl text-lg w-full py-3 focus:outline-none 
                         ${submitable()
                                 ? "bg-cyan-500 hover:bg-cyan-600"
-                                : "bg-blue-gray-200"
+                                : "bg-blue-gray-400 hover:bg-gray-500"
                             }`}
                     >
                         SUBMIT

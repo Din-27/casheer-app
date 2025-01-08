@@ -1,25 +1,37 @@
-import './App.css'
-import pageInitialize from '../src/page'
-import { BrowserRouter, Route, Routes } from 'react-router'
-import getPath from './helper/getPath'
-import NotFound from './page/NotFound'
+import "./App.css";
+import pageInitialize from "../src/page";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router";
+import NotFound from "./page/NotFound";
 
+function RouterContent() {
+  const { pathname } = useLocation();
+
+  const initializedPages = pageInitialize() || []; // Ensure it doesn't return `undefined`
+
+  const matchedRoute = initializedPages.find((x) => x.path === pathname);
+  
+  return (
+    <Routes>
+      {initializedPages.map((x, y) => (
+        <Route
+          key={y}
+          path={x.path}
+          index={x.index}
+          element={<x.component />}
+        />
+      ))}
+      {!matchedRoute && <Route path="*" element={<NotFound />} />}
+    </Routes>
+  );
+}
 
 function App() {
 
   return (
     <BrowserRouter>
-      <Routes>
-        {pageInitialize() && pageInitialize().map((x, y) => {
-          const path = getPath()
-          if (x.path === path) {
-            return <Route key={y} path={x.path} index={x.index} element={<x.component />} />
-          }
-          return <Route key={y} path={x.path} index={x.index} element={<NotFound />} />
-        })}
-      </Routes>
+      <RouterContent />
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
