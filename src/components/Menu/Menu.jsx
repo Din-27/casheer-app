@@ -9,19 +9,17 @@ import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router';
 
 export default function Menu() {
-    const { pathname } = useLocation()
     const dispatch = useDispatch()
+    const { pathname } = useLocation()
     const params = new URLSearchParams(window.location.search)
     const { filteredProducts, loadProducts, deleteProducts } = useProduct();
     const { products, keyword } = useSelector((state) => state.product);
     const { firstTime } = useSelector((state) => state.modal);
     const { sideCart } = useSelector((state) => state.cart);
+
     const onChange = (e) => {
-        if (e.target.value.length > 0) {
-            filteredProducts(e.target.value)
-        } else {
-            loadProducts(params.get('category'))
-        }
+        if (e.target.value.length > 0) filteredProducts(e.target.value)
+        else loadProducts(params.get('category'))
     }
 
     const handlerVisibleSideCart = () => {
@@ -29,9 +27,7 @@ export default function Menu() {
     }
 
     useEffect(() => {
-        if (firstTime) {
-            deleteProducts()
-        }
+        if (firstTime) deleteProducts()
         loadProducts(params.get('category'))
     }, [])
 
