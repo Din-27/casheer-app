@@ -191,7 +191,7 @@ export default function Cart() {
                             </div>
                         </div>
                     )}
-                    <div className="flex flex-col mb-3 text-lg font-semibold bg-cyan-400 text-white rounded-lg py-2 px-3">
+                    {/* <div className="flex flex-col mb-3 text-lg font-semibold bg-cyan-400 text-white rounded-lg py-2 px-3">
                         <div className="text-right flex-grow py-2">
                             <div className="flex-grow text-left">Voucher</div>
                             <input
@@ -208,7 +208,7 @@ export default function Cart() {
                         >
                             SUBMIT
                         </button>
-                    </div>
+                    </div> */}
                     {change === 0 && cart.length > 0 && (
                         <div className="flex justify-center mb-3 text-lg font-semibold bg-cyan-50 text-cyan-700 rounded-lg py-2 px-3">
                             <svg
@@ -233,7 +233,7 @@ export default function Cart() {
                         className={`text-white rounded-2xl text-lg w-full py-3 focus:outline-none 
                         ${submitable()
                                 ? "bg-cyan-500 hover:bg-cyan-600"
-                                : "bg-blue-gray-400 hover:bg-gray-500"
+                                : "bg-blue-gray-400"
                             }`}
                     >
                         SUBMIT

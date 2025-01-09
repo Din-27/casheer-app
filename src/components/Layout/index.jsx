@@ -8,7 +8,7 @@ export default function Wrapper({ children }) {
     const { isShowModalReceipt, firstTime } = useSelector((state) => state.modal);
 
     return (
-        <div className="bg-blue-gray-50">
+        <>
             <div className="hide-print flex flex-row h-screen antialiased text-blue-gray-800">
                 <Sidebar />
                 {children}
@@ -16,6 +16,6 @@ export default function Wrapper({ children }) {
             {Boolean(firstTime) && <SampleData />}
             {isShowModalReceipt && <Receipt />}
             <div id="print-area" className="print-area"></div>
-        </div>
+        </>
     )
 }

@@ -2,12 +2,11 @@
 import { priceFormat } from "../../helper/moneyFormat";
 import { useCart } from "../../hook/useCart";
 
-export default function Card({ item }) {
-    const { addToCart } = useCart();
+export default function Card({ item, onClickCard }) {
 
     return (
         <div
-            onClick={() => addToCart(item)}
+            onClick={() => onClickCard(item)}
             role="button"
             className="select-none cursor-pointer transition-shadow overflow-hidden rounded-2xl bg-white shadow hover:shadow-lg"
         >

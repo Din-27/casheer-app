@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import sampleJson from '../json/sample.json'
-import { setProduct, setCategory } from "../redux/productSlice";
+import { setProducts, setCategory, setSideProduct, setProduct, setImagePreview } from "../redux/productSlice";
 import { useDispatch } from "react-redux";
 import { setFirstTime } from "../redux/modalSlice";
 import _ from 'lodash'
@@ -22,15 +22,15 @@ export const useProduct = () => {
                     _products = filter
                 }
             }
-            dispatch(setProduct({ products: _products }))
+            dispatch(setProducts({ products: _products }))
             dispatch(setCategory({ category: _.uniqBy(products.map(x => x.category)) }))
         },
         deleteProducts: () => {
-            dispatch(setProduct({ products: [] }))
+            dispatch(setProducts({ products: [] }))
         },
         filteredProducts: (keyword) => {
             const rg = keyword ? new RegExp(keyword, "gi") : null;
-            dispatch(setProduct({ products: products.filter((p) => !rg || p.name.match(rg)) }))
+            dispatch(setProducts({ products: products.filter((p) => !rg || p.name.match(rg)) }))
         },
         startWithProductData: async () => {
             const result = []
@@ -62,9 +62,25 @@ export const useProduct = () => {
                 window.history.pushState({}, "", params);
             }
 
-            dispatch(setProduct({
+            dispatch(setProducts({
                 products: _products
             }))
+        },
+        onSideProduct: () => {
+            dispatch(setSideProduct({
+                sideProduct: true
+            }));
+        },
+        onClickProduct: (product) => {
+            dispatch(setProduct({
+                product: product
+            }));
+            dispatch(setImagePreview({
+                imagePreview: product.image
+            }));
+            dispatch(setSideProduct({
+                sideProduct: true
+            }));
         }
     };
 };

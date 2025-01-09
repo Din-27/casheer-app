@@ -4,7 +4,7 @@ import Produk from "./Produk.jsx";
 const pageInitialize = () => {
     return [
         {
-            path: "/home",
+            path: "/",
             index: true,
             name: 'home',
             component: Home,
