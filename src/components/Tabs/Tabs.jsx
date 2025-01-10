@@ -3,7 +3,7 @@ import { useProduct } from "../../hook/useProduct";
 import { useEffect } from "react";
 import { useState } from "react";
 
-export default function Tabs() {
+export default function Tabs({ title }) {
     const [param, setParam] = useState('')
     const queryString = window.location.search;
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -19,6 +19,9 @@ export default function Tabs() {
 
     return (
         <div className="mx-4 border-b border-white min-w-screen">
+            <h1 className="my-4 text-5xl font-bold">
+                {title}
+            </h1>
             <ul className="flex overflow-x-auto -mb-px text-sm font-medium text-center text-gray-500 my-2">
                 <li className={`me-2 ${!param ? ' bg-white rounded-t-xl' : ''}`}>
                     <button onClick={() => onClickFilterKlikCategory('All')} className="space-x-2 inline-flex items-center justify-center p-4 rounded-t-lg hover:text-gray-600">

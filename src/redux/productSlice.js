@@ -2,7 +2,13 @@ import { createSlice } from '@reduxjs/toolkit'
 
 
 const initialState = {
-    product: {},
+    product: {
+        image: '',
+        name: '',
+        price: '',
+        option: '',
+        category: '',
+    },
     products: [],
     category: [],
     database: false,
@@ -10,7 +16,8 @@ const initialState = {
     keyword: "",
     loadingSampleData: false,
     sideProduct: false,
-    imagePreview: ''
+    imagePreview: '',
+    productAction: 'Add'
 }
 
 export const productSlice = createSlice({
@@ -21,6 +28,7 @@ export const productSlice = createSlice({
             state.products = payload.products
         },
         setProduct: (state, { payload }) => {
+            state.productAction = payload.action
             state.product = payload.product
         },
         setImagePreview: (state, { payload }) => {

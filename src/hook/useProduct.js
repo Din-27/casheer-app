@@ -67,12 +67,26 @@ export const useProduct = () => {
             }))
         },
         onSideProduct: () => {
+            dispatch(setProduct({
+                action: 'Add',
+                product: {
+                    image: '',
+                    name: '',
+                    price: '',
+                    option: '',
+                    category: '',
+                }
+            }));
+            dispatch(setImagePreview({
+                imagePreview: ''
+            }));
             dispatch(setSideProduct({
                 sideProduct: true
             }));
         },
         onClickProduct: (product) => {
             dispatch(setProduct({
+                action: 'Edit',
                 product: product
             }));
             dispatch(setImagePreview({

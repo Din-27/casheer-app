@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setImagePreview, setSideProduct } from "../../redux/productSlice";
@@ -6,10 +6,11 @@ import Input from "../Input/Input";
 
 export default function SidebarProduk({ product }) {
     const dispatch = useDispatch()
-    const { imagePreview } = useSelector((state) => state.product)
+    const { imagePreview, productAction } = useSelector((state) => state.product)
     const [selectedFile, setSelectedFile] = useState()
 
     const handlerVisibleSideProduct = () => {
+        dispatch(setSideProduct({ sideProduct: false }))
         dispatch(setSideProduct({ sideProduct: false }))
     }
 
@@ -63,19 +64,19 @@ export default function SidebarProduk({ product }) {
                     </svg>
                 </button>
                 <div className="flex-1 w-full px-4 overflow-auto space-y-4 py-4">
-                    <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50-800 hover:bg-gray-100">
+                    <label htmlFor="dropzone-file" className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50-800 hover:bg-gray-100">
                         {imagePreview && <img className="w-44 h-44 m-auto" src={imagePreview} alt="image" />}
-                        <input id="dropzone-file" type="file" onChange={onSelectFile} class="hidden" />
+                        <input id="dropzone-file" type="file" onChange={onSelectFile} className="hidden" />
                     </label>
-                    {Object.keys(product).map(x => {
+                    {Object.keys(product).map((x, y) => {
                         if (x !== 'id' && x !== 'image')
-                            return <Input type="text" placeholder={x} labelName={x} value={product[x]} />
+                            return <Input key={y} type="text" placeholder={x} labelName={x} value={product[x]} />
                     }
                     )}
                     <button
-                        className={`text-white rounded-2xl text-lg w-full py-3 focus:outline-none bg-cyan-500 hover:bg-cyan-600`}
+                        className={`uppercase text-white rounded-2xl text-lg w-full py-3 focus:outline-none bg-cyan-500 hover:bg-cyan-600`}
                     >
-                        EDIT
+                        {productAction}
                     </button>
                 </div>
             </div>

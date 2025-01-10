@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import Tabs from '../Tabs/Tabs';
 import { useLocation } from 'react-router';
 
-export default function Menu({ onClickCard, iconSVG, onClickSideSearch, onView }) {
+export default function Menu({ onClickCard, iconSVG, onClickSideSearch, onView, title }) {
     const { pathname } = useLocation()
     const params = new URLSearchParams(window.location.search)
     const { filteredProducts, loadProducts, deleteProducts } = useProduct();
@@ -54,7 +54,7 @@ export default function Menu({ onClickCard, iconSVG, onClickSideSearch, onView }
                     </button>}
                 </div>
             </div>
-            {products.length > 0 && <Tabs />}
+            {products.length > 0 && <Tabs title={title} />}
             <div className="h-full overflow-hidden mt-2">
                 <div className="h-full overflow-y-auto px-2">
                     {products?.length === 0 &&
