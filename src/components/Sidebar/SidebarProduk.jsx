@@ -78,6 +78,11 @@ export default function SidebarProduk({ product }) {
                     >
                         {productAction}
                     </button>
+                    {productAction !== 'Add' && <button
+                        className={`uppercase text-white rounded-2xl text-lg w-full py-3 focus:outline-none bg-red-500 hover:bg-red-600`}
+                    >
+                        Delete
+                    </button>}
                 </div>
             </div>
         </div >

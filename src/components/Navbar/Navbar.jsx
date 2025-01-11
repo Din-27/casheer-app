@@ -3,7 +3,7 @@ import React from 'react'
 export default function Navbar() {
     return (
         <nav class="bg-cyan-500 w-full border-b border-gray-200 text-white rounded-2xl">
-            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <div class="w-full flex flex-wrap items-center justify-between mx-auto p-4">
                 <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
                     <span class="self-center text-3xl font-semibold whitespace-nowrap ">Konoha cafe</span>
                 </a>
