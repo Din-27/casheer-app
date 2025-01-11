@@ -6,7 +6,7 @@ export default function Table() {
     const onShowDrop = () => setDrop((prev) => (prev ? false : true));
 
     return (
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg h-[61vh] bg-white p-6">
+        <div class="relative shadow-md sm:rounded-lg h-[50vh] bg-white p-6">
             <div class="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
                 <div className="space-y-4">
                     <h1 className="text-4xl font-bold">
@@ -176,7 +176,7 @@ export default function Table() {
                     />
                 </div>
             </div>
-            <table onClick={onShowDrop} class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+            <table onClick={() => setDrop(false)} class="h-[30vh] overflow-auto w-full text-sm text-left rtl:text-right text-gray-500 ">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50  ">
                     <tr>
                         <th scope="col" class="p-4">

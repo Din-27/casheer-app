@@ -22,7 +22,7 @@ export default function Home() {
     return (
         <Layout>
             <div className="flex flex-col bg-blue-gray-50 h-full w-full py-6 mx-4">
-                <Navbar />
+                {/* <Navbar /> */}
                 <h1 className="mt-4 text-5xl font-bold">
                     Hallo, <span className="text-cyan-500">Herdiyana 👋</span>
                 </h1>

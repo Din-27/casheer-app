@@ -112,7 +112,7 @@ export default function Menu({ session, onClickCard, iconSVG, onClickSideSearch,
                             </div>
                         </div>}
                     <div
-                        className="grid lg:grid-cols-8 md:grid-cols-5 sm:grid-cols-4 gap-4 pb-3"
+                        className="grid lg:grid-cols-8 md:grid-cols-5 sm:grid-cols-4 gap-4 pb-3 items-center"
                     >
                         {
                             products?.length > 0 && products && products.map((x, y) =>
@@ -126,7 +126,7 @@ export default function Menu({ session, onClickCard, iconSVG, onClickSideSearch,
                             onView && <div
                                 onClick={onClickSideSearch}
                                 role="button"
-                                className="text-gray-100 select-none cursor-pointer transition-shadow overflow-hidden rounded-2xl bg-gray-300 shadow hover:shadow-lg"
+                                className="text-white select-none cursor-pointer transition-shadow overflow-hidden rounded-2xl bg-gray-500 shadow hover:shadow-lg"
                             >
                                 {iconSVG}
                             </div>
