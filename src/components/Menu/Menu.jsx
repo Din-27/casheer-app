@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import Tabs from '../Tabs/Tabs';
 import { useLocation } from 'react-router';
 
-export default function Menu({ onClickCard, iconSVG, onClickSideSearch, onView, title }) {
+export default function Menu({ session, onClickCard, iconSVG, onClickSideSearch, onView, title }) {
     const { pathname } = useLocation()
     const params = new URLSearchParams(window.location.search)
     const { filteredProducts, loadProducts, deleteProducts } = useProduct();
@@ -49,15 +49,21 @@ export default function Menu({ onClickCard, iconSVG, onClickSideSearch, onView, 
                         placeholder="Cari menu ..."
                         onChange={onChange}
                     />
-                    {!onView && <button onClick={onClickSideSearch} className='shadow p-4 rounded-3xl bg-white'>
+                    {session === 'kasir' && !onView && <button onClick={onClickSideSearch} className='shadow p-4 rounded-3xl bg-white'>
                         {iconSVG}
                     </button>}
                 </div>
             </div>
-            {products.length > 0 && <Tabs title={title} />}
+
+            <div className="mx-4 border-b border-white min-w-screen">
+                <h1 className="my-4 text-5xl font-bold">
+                    {title}
+                </h1>
+                {products.length > 0 && <Tabs title={title} />}
+            </div>
             <div className="h-full overflow-hidden mt-2">
                 <div className="h-full overflow-y-auto px-2">
-                    {products?.length === 0 &&
+                    {session === 'kasir' && products?.length === 0 &&
                         <div className="select-none bg-blue-gray-100 rounded-3xl flex flex-wrap content-center justify-center h-full opacity-25">
                             <div className="w-full text-center">
                                 <svg
@@ -105,15 +111,27 @@ export default function Menu({ onClickCard, iconSVG, onClickSideSearch, onView, 
                                 </p>
                             </div>
                         </div>}
-                    {products?.length > 0 && <div
+                    <div
                         className="grid lg:grid-cols-8 md:grid-cols-5 sm:grid-cols-4 gap-4 pb-3"
                     >
-                        {products && products.map((x, y) =>
-                            <div key={y}>
-                                <Card item={x} onClickCard={onClickCard} />
+                        {
+                            products?.length > 0 && products && products.map((x, y) =>
+                                <div key={y}>
+                                    <Card item={x} onClickCard={onClickCard} />
+                                </div>
+                            )
+                        }
+                        {
+                            session === 'produk' &&
+                            onView && <div
+                                onClick={onClickSideSearch}
+                                role="button"
+                                className="text-gray-100 select-none cursor-pointer transition-shadow overflow-hidden rounded-2xl bg-gray-300 shadow hover:shadow-lg"
+                            >
+                                {iconSVG}
                             </div>
-                        )}
-                    </div>}
+                        }
+                    </div>
                 </div>
             </div>
         </div>

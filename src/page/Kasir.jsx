@@ -20,6 +20,7 @@ export default function Kasir() {
         <Layout>
             <Menu
                 title={'Kasir'}
+                session='kasir'
                 onView={sideCart}
                 iconSVG={<svg
                     xmlns="http://www.w3.org/2000/svg"
