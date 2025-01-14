@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Kasir",
+    "value": "kasir",
+    "status": "enable"
+  },
+  {
+    "id": 3,
+    "name": "Fitur",
+    "value": "fitur",
+    "status": "enable"
+  },
+  {
+    "id": 5,
+    "name": "Pembayaran",
+    "value": "pembayaran",
+    "status": "enable"
+  },
+  {
+    "id": 6,
+    "name": "Privasi",
+    "value": "privasi",
+    "status": "enable"
+  },
+  {
+    "id": 2,
+    "name": "Akun",
+    "value": "akun",
+    "status": "enable"
+  },
+  {
+    "id": 6,
+    "name": "Customer Service",
+    "value": "customer-service",
+    "status": "disable"
+  }
+]

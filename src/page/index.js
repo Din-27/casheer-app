@@ -1,8 +1,7 @@
-import CustomerService from "./CustomerService.jsx";
 import Home from "./Home.jsx";
 import Kasir from "./Kasir.jsx";
 import Produk from "./Produk.jsx";
-import Setting from "./Setting.jsx";
+import Setting from "./Setting/index.jsx";
 
 const pageInitialize = () => {
     return [
@@ -60,23 +59,6 @@ const pageInitialize = () => {
                         d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
                     />
                 </svg>`,
-        },
-        {
-            path: "/customer-service",
-            index: false,
-            name: "customer-service",
-            component: CustomerService,
-            icon_sidebar: "/layer-produk.svg",
-            icon_sidebar_svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="icon icon-tabler icons-tabler-outline icon-tabler-message-chatbot">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path
-                    d="M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-5l-5 3v-3h-2a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12z" />
-                <path d="M9.5 9h.01" />
-                <path d="M14.5 9h.01" />
-                <path d="M9.5 13a3.5 3.5 0 0 0 5 0" />
-            </svg>`,
         },
         {
             path: "/setting",

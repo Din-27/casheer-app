@@ -3,7 +3,7 @@ import React from 'react'
 export default function CardInfo({ icon, title, saldo, percent }) {
     return (
         <div
-            className="p-4 space-y-6 select-none cursor-pointer transition-shadow overflow-hidden rounded-2xl bg-white shadow hover:shadow-lg"
+            className="p-4 space-y-2 select-none cursor-pointer transition-shadow overflow-hidden rounded-2xl bg-white shadow hover:shadow-lg"
         >
             <div className='flex items-center'>
                 <div className='w-16 text-yellow-500'>

@@ -10,7 +10,7 @@ export default function Sidebar() {
 
     return (
         <div className="flex flex-row w-auto flex-shrink-0 pl-4 pr-2 py-4">
-            <div className="flex flex-col items-center py-4 flex-shrink-0 w-20 bg-cyan-500 rounded-3xl">
+            <div style={{ backgroundColor: localStorage.getItem('color') }} className="flex flex-col items-center py-4 flex-shrink-0 w-20 bg-cyan-500 rounded-3xl">
                 <div className="flex items-center justify-center h-12 w-12 bg-cyan-50 text-cyan-700 rounded-full">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"

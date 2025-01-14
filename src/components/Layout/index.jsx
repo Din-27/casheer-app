@@ -9,7 +9,7 @@ export default function Wrapper({ children }) {
 
     return (
         <>
-            <div className="hide-print flex flex-row h-screen antialiased text-blue-gray-800">
+            <div className="min-h-screen hide-print flex antialiased text-blue-gray-800">
                 <Sidebar />
                 {children}
             </div>
