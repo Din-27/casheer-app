@@ -5,11 +5,12 @@ import Receipt from '../Modal/Receipt';
 
 // eslint-disable-next-line react/prop-types
 export default function Wrapper({ children }) {
+    const path = window.location.pathname
     const { isShowModalReceipt, firstTime } = useSelector((state) => state.modal);
 
     return (
         <>
-            <div className="min-h-screen hide-print flex antialiased text-blue-gray-800">
+            <div className={`${path.includes('setting') ? 'min-h-screen' : 'h-screen'} hide-print flex antialiased text-blue-gray-800`}>
                 <Sidebar />
                 {children}
             </div>

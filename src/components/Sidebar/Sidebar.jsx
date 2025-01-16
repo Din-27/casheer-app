@@ -59,7 +59,7 @@ export default function Sidebar() {
                                             }`}
                                     >
                                         <div
-                                            className="w-8 h-8"
+                                            className="w-7 h-7"
                                             dangerouslySetInnerHTML={{
                                                 __html: item.icon_sidebar_svg,
                                             }}
@@ -69,8 +69,7 @@ export default function Sidebar() {
                             </li>
                         ))}
                 </ul>
-                <a
-                    href="#"
+                <button
                     className="mt-auto flex items-center justify-center text-cyan-200 hover:text-cyan-100 h-10 w-10 focus:outline-none"
                 >
                     {/* <svg
@@ -86,7 +85,7 @@ export default function Sidebar() {
                         />
                     </svg> */}
                     <svg
-                        className="h-8 w-8"
+                        className="h-7 w-7"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                         fill="none"
@@ -101,7 +100,7 @@ export default function Sidebar() {
                         <path d="M9 12h12l-3 -3" />
                         <path d="M18 15l3 -3" />
                     </svg>
-                </a>
+                </button>
             </div>
         </div>
     );

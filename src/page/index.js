@@ -1,7 +1,7 @@
-import Home from "./Home.jsx";
-import Kasir from "./Kasir.jsx";
-import Produk from "./Produk.jsx";
-import Setting from "./Setting/index.jsx";
+import Home from "./Home";
+import Kasir from "./Kasir";
+import Produk from "./Produk";
+import Setting from "./Setting";
 
 const pageInitialize = () => {
     return [
@@ -31,6 +31,7 @@ const pageInitialize = () => {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
+                    class="icon icon-tabler icons-tabler-outline icon-tabler-settings"
                 >
                     <path
                         stroke-linecap="round"

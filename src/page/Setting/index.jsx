@@ -3,6 +3,7 @@ import Layout from "../../components/Layout";
 import SettingJson from "../../json/setting.json";
 import { useState } from "react";
 import Kasir from "./Kasir";
+import { useParams } from "react-router";
 
 const SettingSection = ({ name }) => {
     switch (name) {
@@ -15,14 +16,15 @@ const SettingSection = ({ name }) => {
 
 export default function Setting() {
     const [param, setParam] = useState('')
+
     return (
         <Layout>
-            <div className="flex flex-col bg-blue-gray-50 h-full w-full py-6 mx-4">
+            <div className="flex flex-col bg-blue-gray-50 h-full w-full mx-4 my-6">
                 <h1 className="text-5xl font-bold border-b-4 pb-6 border-white">
                     Setting
                 </h1>
 
-                <div className="flex min-h-fit">
+                <div className="flex min-h-full">
                     <div className="max-h-[85vh] w-1/3 flex flex-col overflow-auto mt-4 px-4 space-y-4 py-4">
                         {SettingJson.map((x, y) => (
                             x.status === 'enable' && <button

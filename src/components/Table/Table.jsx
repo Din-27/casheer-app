@@ -192,7 +192,7 @@ export default function Table({ data, tableOnly = false }) {
                                     </label>
                                 </div>
                             </th>
-                            {Object.keys(data[0]).map((x, y) =>
+                            {data && Object.keys(data[0]).map((x, y) =>
                                 <th key={y} scope="col" class="px-6 py-3">
                                     {x}
                                 </th>
@@ -203,7 +203,7 @@ export default function Table({ data, tableOnly = false }) {
                         </tr>
                     </thead>
                     <tbody>
-                        {data.map((x, y) =>
+                        {data && data.map((x, y) =>
                             <tr class="h-1/2 overflow-auto bg-white border-b hover:bg-gray-50">
                                 <td class="w-4 p-4">
                                     <div class="flex items-center">
