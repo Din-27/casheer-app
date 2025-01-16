@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { setImagePreview, setSideProduct } from "../../redux/productSlice";
+import { setImagePreview, setSideProduct } from "../../redux/slice/productSlice";
 import Input from "../Input/Input";
 
 export default function SidebarProduk({ product }) {

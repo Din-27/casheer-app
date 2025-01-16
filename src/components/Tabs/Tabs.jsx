@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { useProduct } from "../../hook/useProduct";
+import { useProduct } from "../../lib/hook/useProduct";
 import { useEffect } from "react";
 import { useState } from "react";
 

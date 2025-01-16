@@ -2,9 +2,9 @@ import Menu from '../components/Menu/Menu'
 import Cart from '../components/Cart/Cart'
 import Layout from '../components/Layout'
 import { useSelector } from 'react-redux';
-import { useCart } from '../hook/useCart';
+import { useCart } from '../lib/hook/useCart';
 import { useDispatch } from 'react-redux';
-import { setSideCart } from '../redux/cartSlice';
+import { setSideCart } from '../redux/slice/cartSlice';
 
 export default function Kasir() {
     const dispatch = useDispatch()

@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { beep, clearSound } from "../helper/playsound";
-import { addCart, changeCart, clearCart, delCart, setSideCart } from "../redux/cartSlice";
-import { clearCash } from "../redux/cashSlice";
+import { beep, clearSound } from "../utils/playsound";
+import { addCart, changeCart, clearCart, delCart, setSideCart } from "../../redux/slice/cartSlice";
+import { clearCash } from "../../redux/slice/cashSlice";
 import { useCash } from "./useCash";
 
 export const useCart = () => {

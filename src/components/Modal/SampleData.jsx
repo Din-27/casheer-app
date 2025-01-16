@@ -1,4 +1,4 @@
-import { useProduct } from "../../hook/useProduct"
+import { useProduct } from "../../lib/hook/useProduct"
 
 export default function SampleData() {
     const { startWithProductData, startBlank, loadProducts } = useProduct()

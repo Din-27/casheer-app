@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
-import sampleJson from '../json/sample.json'
-import { setProducts, setCategory, setSideProduct, setProduct, setImagePreview } from "../redux/productSlice";
+import sampleJson from '../../json/sample.json'
+import { setProducts, setCategory, setSideProduct, setProduct, setImagePreview } from "../../redux/slice/productSlice";
 import { useDispatch } from "react-redux";
-import { setFirstTime } from "../redux/modalSlice";
+import { setFirstTime } from "../../redux/slice/modalSlice";
 import _ from 'lodash'
-import api from '../api/product.service'
+import api from '../service/product.service'
 
 export const useProduct = () => {
     const dispatch = useDispatch();

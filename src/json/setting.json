@@ -6,12 +6,6 @@
     "status": "enable"
   },
   {
-    "id": 3,
-    "name": "Fitur",
-    "value": "fitur",
-    "status": "enable"
-  },
-  {
     "id": 5,
     "name": "Pembayaran",
     "value": "pembayaran",

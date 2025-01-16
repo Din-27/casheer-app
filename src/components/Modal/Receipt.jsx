@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
-import { useModalReceipt } from '../../hook/useModalReceipt';
-import { priceFormat } from '../../helper/moneyFormat';
-import { useCash } from '../../hook/useCash';
+import { useModalReceipt } from '../../lib/hook/useModalReceipt';
+import { priceFormat } from '../../lib/utils/moneyFormat';
+import { useCash } from '../../lib/hook/useCash';
 
 export default function Receipt() {
     const { getTotalPrice } = useCash();

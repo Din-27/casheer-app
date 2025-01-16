@@ -1,5 +1,5 @@
-import soundBeep from '../assets/sound/beep-29.mp3'
-import soundButton from '../assets/sound/button-21.mp3'
+import soundBeep from '../../assets/sound/beep-29.mp3'
+import soundButton from '../../assets/sound/button-21.mp3'
 
 const playSound = (src) => {
     const sound = new Audio();

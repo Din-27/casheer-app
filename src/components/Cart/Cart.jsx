@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
-import { useCart } from "../../hook/useCart";
-import { useCash } from "../../hook/useCash";
-import { numberFormat, priceFormat } from "../../helper/moneyFormat";
-import { useModalReceipt } from "../../hook/useModalReceipt";
+import { useCart } from "../../lib/hook/useCart";
+import { useCash } from "../../lib/hook/useCash";
+import { numberFormat, priceFormat } from "../../lib/utils/moneyFormat";
+import { useModalReceipt } from "../../lib/hook/useModalReceipt";
 import CartKosong from "./CartKosong";
 import { useDispatch } from "react-redux";
-import { setSideCart } from "../../redux/cartSlice";
+import { setSideCart } from "../../redux/slice/cartSlice";
 
 export default function Cart() {
     const dispatch = useDispatch()

@@ -1,4 +1,4 @@
-import indexedDBConnection from "../config/indexedDB"
+import indexedDBConnection from "../../lib/config/indexedDB"
 
 const getProducts = async () => {
     const data = (await indexedDBConnection()).getAll('products')

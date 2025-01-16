@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import Layout from "../components/Layout";
 import Menu from "../components/Menu/Menu";
 import SidebarProduk from "../components/Sidebar/SidebarProduk";
-import { useProduct } from "../hook/useProduct";
+import { useProduct } from "../lib/hook/useProduct";
 
 export default function Produk() {
     const dispatch = useDispatch();

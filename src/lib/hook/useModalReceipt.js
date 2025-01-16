@@ -1,9 +1,9 @@
 import { useDispatch } from "react-redux";
-import { closeModalReceipt, setIsShowModalReceipt, showModalReceipt } from "../redux/modalSlice";
+import { closeModalReceipt, setIsShowModalReceipt, showModalReceipt } from "../../redux/slice/modalSlice";
 import { useSelector } from "react-redux";
-import { clearCart } from "../redux/cartSlice";
-import { clearCash } from "../redux/cashSlice";
-import { clearProducts } from "../redux/productSlice";
+import { clearCart } from "../../redux/slice/cartSlice";
+import { clearCash } from "../../redux/slice/cashSlice";
+import { clearProducts } from "../../redux/slice/productSlice";
 
 export const useModalReceipt = () => {
     const dispatch = useDispatch();

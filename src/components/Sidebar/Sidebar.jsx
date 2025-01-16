@@ -59,7 +59,7 @@ export default function Sidebar() {
                                             }`}
                                     >
                                         <div
-                                            className="w-6 h-6"
+                                            className="w-8 h-8"
                                             dangerouslySetInnerHTML={{
                                                 __html: item.icon_sidebar_svg,
                                             }}

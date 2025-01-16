@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { beep } from "../helper/playsound";
-import { setCash, setChange } from "../redux/cashSlice";
+import { beep } from "../utils/playsound";
+import { setCash, setChange } from "../../redux/slice/cashSlice";
 
 export const useCash = () => {
     const dispatch = useDispatch();

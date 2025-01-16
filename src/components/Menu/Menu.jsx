@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useSelector } from 'react-redux';
-import { useProduct } from '../../hook/useProduct';
+import { useProduct } from '../../lib/hook/useProduct';
 import Card from '../Card/Card';
 import { useEffect } from 'react';
 import Tabs from '../Tabs/Tabs';

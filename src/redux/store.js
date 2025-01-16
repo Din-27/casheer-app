@@ -3,10 +3,10 @@ import storage from "redux-persist/lib/storage";
 import { combineReducers } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import persistStore from 'redux-persist/es/persistStore';
-import productReducer from './productSlice'
-import cartReducer from './cartSlice'
-import cashReducer from './cashSlice'
-import modalReducer from './modalSlice'
+import productReducer from './slice/productSlice'
+import cartReducer from './slice/cartSlice'
+import cashReducer from './slice/cashSlice'
+import modalReducer from './slice/modalSlice'
 
 
 
