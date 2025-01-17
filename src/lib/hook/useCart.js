@@ -33,7 +33,6 @@ export const useCart = () => {
                 }));
             } else {
                 const [cartItem] = cart.filter((i) => i.productId === product.id);
-                console.log(cartItem);
                 const afterAdd = cartItem.qty + 1;
                 dispatch(changeCart({ index, name: 'qty', value: afterAdd }));
             }

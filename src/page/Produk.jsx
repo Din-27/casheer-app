@@ -9,7 +9,6 @@ export default function Produk() {
     const { onClickProduct, onSideProduct } = useProduct();
 
     const handleAdd = () => onSideProduct();
-    console.log(sideProduct, product);
 
     return (
         <Layout>

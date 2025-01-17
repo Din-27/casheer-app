@@ -10,7 +10,6 @@ import modalReducer from './slice/modalSlice'
 import authReducer from './slice/authSlice'
 
 
-
 const productPersistConfig = {
     key: "product",
     storage,
