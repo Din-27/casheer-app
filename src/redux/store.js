@@ -32,7 +32,14 @@ const rootReducer = combineReducers({
 });
 
 const store = configureStore({
-    reducer: rootReducer
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: {
+                ignoredActions: ['persist/PERSIST', 'persist/REHYDRATE'],
+                ignoredPaths: ['register', 'rehydrate'],
+            },
+        }),
 })
 
 const persistor = persistStore(store);
