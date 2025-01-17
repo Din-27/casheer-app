@@ -7,6 +7,7 @@ import productReducer from './slice/productSlice'
 import cartReducer from './slice/cartSlice'
 import cashReducer from './slice/cashSlice'
 import modalReducer from './slice/modalSlice'
+import authReducer from './slice/authSlice'
 
 
 
@@ -16,7 +17,14 @@ const productPersistConfig = {
     whitelist: ['firstTime'],
 };
 
+const authPersistConfig = {
+    key: "auth",
+    storage,
+    whitelist: ['token'],
+};
+
 const rootReducer = combineReducers({
+    auth: persistReducer(authPersistConfig, authReducer),
     cart: cartReducer,
     cash: cashReducer,
     modal: persistReducer(productPersistConfig, modalReducer),

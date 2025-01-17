@@ -5,13 +5,17 @@ import Card from '../Card/Card';
 import { useEffect } from 'react';
 import Tabs from '../Tabs/Tabs';
 import { useLocation } from 'react-router';
+import { useCart } from '../../lib/hook/useCart';
 
 export default function Menu({ session, onClickCard, iconSVG, onClickSideSearch, onView, title }) {
     const { pathname } = useLocation()
+    const { getItemsCount } = useCart();
     const params = new URLSearchParams(window.location.search)
     const { filteredProducts, loadProducts, deleteProducts } = useProduct();
     const { products, keyword } = useSelector((state) => state.product);
+    const { cart } = useSelector((state) => state.cart);
     const { firstTime } = useSelector((state) => state.modal);
+
 
     const onChange = (e) => {
         if (e.target.value.length > 0) filteredProducts(e.target.value)
@@ -49,8 +53,13 @@ export default function Menu({ session, onClickCard, iconSVG, onClickSideSearch,
                         placeholder="Cari menu ..."
                         onChange={onChange}
                     />
-                    {session === 'kasir' && !onView && <button onClick={onClickSideSearch} className='shadow p-4 rounded-3xl bg-white'>
+                    {session === 'kasir' && !onView && <button onClick={onClickSideSearch} className='relative shadow p-4 rounded-3xl bg-white'>
                         {iconSVG}
+                        {cart.length > 0 &&
+                            <div className="text-center absolute bg-cyan-500 text-white w-7 h-7 text-lg p-0 font-bold leading-7 rounded-full left-0 top-1">
+                                {getItemsCount()}
+                            </div>
+                        }
                     </button>}
                 </div>
             </div>

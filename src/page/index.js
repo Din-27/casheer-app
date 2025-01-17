@@ -1,5 +1,6 @@
 import Home from "./Home";
 import Kasir from "./Kasir";
+import Login from "./Login";
 import Produk from "./Produk";
 import Setting from "./Setting";
 
@@ -22,7 +23,7 @@ const pageInitialize = () => {
         },
         {
             path: "/kasir",
-            index: true,
+            index: false,
             name: "kasir",
             component: Kasir,
             icon_sidebar: "/kasir.svg",

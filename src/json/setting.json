@@ -9,19 +9,19 @@
     "id": 5,
     "name": "Pembayaran",
     "value": "pembayaran",
+    "status": "disable"
+  },
+  {
+    "id": 2,
+    "name": "User",
+    "value": "user",
     "status": "enable"
   },
   {
     "id": 6,
     "name": "Privasi",
     "value": "privasi",
-    "status": "enable"
-  },
-  {
-    "id": 2,
-    "name": "Akun",
-    "value": "akun",
-    "status": "enable"
+    "status": "disable"
   },
   {
     "id": 6,

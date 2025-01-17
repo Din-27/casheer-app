@@ -1,9 +1,13 @@
 import { useLocation, useNavigate } from "react-router";
 import pageInitialize from "../../page";
+import { useDispatch } from "react-redux";
+import { clearToken } from "../../redux/slice/authSlice";
 
 export default function Sidebar() {
+    const dispatch = useDispatch();
     const navigation = useNavigate();
     const { pathname } = useLocation();
+
     const handlerSideNavigate = (path) => {
         navigation(path);
     };
@@ -70,6 +74,7 @@ export default function Sidebar() {
                         ))}
                 </ul>
                 <button
+                    onClick={() => dispatch(clearToken())}
                     className="mt-auto flex items-center justify-center text-cyan-200 hover:text-cyan-100 h-10 w-10 focus:outline-none"
                 >
                     {/* <svg

@@ -1,8 +1,6 @@
 import React from 'react'
 
-
-export default function Pembayaran() {
-
+export default function Privasi() {
     return (
         <div>
         </div>
