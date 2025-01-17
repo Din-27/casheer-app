@@ -1,4 +1,3 @@
-import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import Layout from "../components/Layout";
 import Menu from "../components/Menu/Menu";
@@ -6,7 +5,6 @@ import SidebarProduk from "../components/Sidebar/SidebarProduk";
 import { useProduct } from "../lib/hook/useProduct";
 
 export default function Produk() {
-    const dispatch = useDispatch();
     const { sideProduct, product } = useSelector((state) => state.product);
     const { onClickProduct, onSideProduct } = useProduct();
 

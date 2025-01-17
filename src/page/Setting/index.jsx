@@ -1,4 +1,3 @@
-import React from "react";
 import Layout from "../../components/Layout";
 import SettingJson from "../../json/setting.json";
 import { useState } from "react";

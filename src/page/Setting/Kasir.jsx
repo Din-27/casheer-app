@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import Input from "../../components/Input/Input";
-import Table from "../../components/Table/Table";
+import { useEffect, useState } from "react";
 
 export default function Kasir() {
     const [preview, setPreview] = useState("");
@@ -38,7 +36,7 @@ export default function Kasir() {
                 <h3 className="font-bold text-gray-500">Ganti Gambar Logo</h3>
             </label>
             <div>
-                <label for='header' className={`block text-lg font-bold`}>{'Header'}</label>
+                <label htmlFor='header' className={`block text-lg font-bold`}>{'Header'}</label>
                 <input id='header' type="text" placeholder="Cafe John" className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500" />
             </div>
             <button

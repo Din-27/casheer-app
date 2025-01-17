@@ -1,6 +1,5 @@
 import Home from "./Home";
 import Kasir from "./Kasir";
-import Login from "./Login";
 import Produk from "./Produk";
 import Setting from "./Setting";
 

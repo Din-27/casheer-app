@@ -4,11 +4,9 @@ import { useProduct } from '../../lib/hook/useProduct';
 import Card from '../Card/Card';
 import { useEffect } from 'react';
 import Tabs from '../Tabs/Tabs';
-import { useLocation } from 'react-router';
 import { useCart } from '../../lib/hook/useCart';
 
 export default function Menu({ session, onClickCard, iconSVG, onClickSideSearch, onView, title }) {
-    const { pathname } = useLocation()
     const { getItemsCount } = useCart();
     const params = new URLSearchParams(window.location.search)
     const { filteredProducts, loadProducts, deleteProducts } = useProduct();

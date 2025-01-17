@@ -3,7 +3,7 @@ import { useProduct } from "../../lib/hook/useProduct";
 import { useEffect } from "react";
 import { useState } from "react";
 
-export default function Tabs({ title }) {
+export default function Tabs() {
     const [param, setParam] = useState('')
     const queryString = window.location.search;
     // eslint-disable-next-line react-hooks/exhaustive-deps

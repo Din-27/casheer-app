@@ -3,7 +3,7 @@ import Sidebar from '../Sidebar/Sidebar'
 import SampleData from '../Modal/SampleData';
 import Receipt from '../Modal/Receipt';
 
-// eslint-disable-next-line react/prop-types
+ 
 export default function Wrapper({ children }) {
     const path = window.location.pathname
     const { isShowModalReceipt, firstTime } = useSelector((state) => state.modal);
